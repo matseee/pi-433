@@ -44,7 +44,7 @@ def handle(endpointName, state):
     if code is not None:
         rfdevice.enable_tx()
         rfdevice.tx_repeat = 50
-        rfdevice.tx_code(args.code, 1, 350, 24)
+        rfdevice.tx_code(code, 1, 350, 24)
         rfdevice.cleanup()
         logging.info('Send code ' + str(code))
     else:
