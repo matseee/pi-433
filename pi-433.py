@@ -22,7 +22,7 @@ endpoints.append(Endpoint('B', 4433, 4436))
 endpoints.append(Endpoint('C', 5201, 5204))
 endpoints.append(Endpoint('D', 5393, 5396))
 
-rfdevice = RFDevice(args.gpio)
+rfdevice = RFDevice(17)
 app = Flask(__name__)
 
 
