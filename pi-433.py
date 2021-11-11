@@ -47,6 +47,8 @@ def handle(endpointName, state):
         rfdevice.tx_code(code, 1, 350, 24)
         rfdevice.cleanup()
         logging.info('Send code ' + str(code))
+        return '200 OK'
     else:
         logging.info('Endpoint not found: ' + endpointName)
         abort(404)
+        return '404 Endpoint not found'
