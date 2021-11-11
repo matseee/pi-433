@@ -22,7 +22,6 @@ endpoints.append(Endpoint('B', 4433, 4436))
 endpoints.append(Endpoint('C', 5201, 5204))
 endpoints.append(Endpoint('D', 5393, 5396))
 
-rfdevice = RFDevice(17)
 app = Flask(__name__)
 
 
@@ -42,6 +41,7 @@ def handle(endpointName, state):
     code = getCode(endpointName, state)
 
     if code is not None:
+        rfdevice = RFDevice(17)
         rfdevice.enable_tx()
         rfdevice.tx_repeat = 50
         rfdevice.tx_code(code, 1, 350, 24)
