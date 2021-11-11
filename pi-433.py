@@ -28,7 +28,7 @@ app = Flask(__name__)
 def getCode(name, state):
     for endpoint in endpoints:
         if endpoint.name == name:
-            if state == 1:
+            if state == '1':
                 return endpoint.on
             else:
                 return endpoint.off
