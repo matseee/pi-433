@@ -14,14 +14,14 @@ class Endpoint:
         self.name = name
         self.on = on
         self.off = off
-        self.state = 0
+        self.state = '0'
 
 
 endpoints = []
-endpoints.append(Endpoint('A', 1361, 1364, 0))
-endpoints.append(Endpoint('B', 4433, 4436, 0))
-endpoints.append(Endpoint('C', 5201, 5204, 0))
-endpoints.append(Endpoint('D', 5393, 5396, 0))
+endpoints.append(Endpoint('A', 1361, 1364, '0'))
+endpoints.append(Endpoint('B', 4433, 4436, '0'))
+endpoints.append(Endpoint('C', 5201, 5204, '0'))
+endpoints.append(Endpoint('D', 5393, 5396, '0'))
 
 app = Flask(__name__)
 
@@ -46,22 +46,22 @@ def set(endpointName):
 
     endpoint = getEndpoint(endpointName)
 
-    logging.info('Set ' + endpointName + ' = ' + str(new_state))
-    endpoint.state = new_state
+    if endpoint is not None:
+        logging.info('Set ' + endpointName + ' = ' + str(new_state))
+        endpoint.state = new_state
 
-    if new_state == 1:
-        code = endpoint.on
-    else:
-        code = endpoint.off
+        if new_state == '1':
+            code = endpoint.on
+        else:
+            code = endpoint.off
 
-    if code is not None:
         rfdevice = RFDevice(17)
         rfdevice.enable_tx()
         rfdevice.tx_repeat = 50
         rfdevice.tx_code(code, 1, 350, 24)
         rfdevice.cleanup()
-        logging.info('Send code ' + str(code))
-        return '{}'
+        logging.info('Send code ' + str(code) + ' via 433MHZ.')
+        return '{ "state":"' + str(new_state) + '"}'
     else:
         logging.info('Endpoint not found: ' + endpointName)
         abort(404)
