@@ -35,7 +35,7 @@ def getEndpoint(name):
 
 @app.route('/<endpointName>', methods=['GET'])
 def get(endpointName):
-    entpoint = getEndpoint(endpointName)
+    endpoint = getEndpoint(endpointName)
     return '{ "state":"' + endpoint.state + '" }'
 
 
