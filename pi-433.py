@@ -36,7 +36,7 @@ def getEndpoint(name):
 @app.route('/<endpointName>', methods=['GET'])
 def get(endpointName):
     endpoint = getEndpoint(endpointName)
-    return '{ "state":"' + endpoint.state + '" }'
+    return '{ "state":"' + str(endpoint.state) + '" }'
 
 
 @app.route('/<endpointName>', methods=['POST'])
