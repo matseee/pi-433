@@ -6,7 +6,7 @@ cp ./Pi433Daemon.conf /etc/init/Pi433Daemon.conf
 PWD=$(pwd)
 
 # Change the path in the config file
-sed -i -e "s/___PATH___/${PWD}/g" /etc/init/Pi433Daemon.conf
+sed "s|___PATH___|${PWD}|g" /etc/init/Pi433Daemon.conf > /etc/init/Pi433Daemon.conf
 
 # reboot the system
 # reboot
