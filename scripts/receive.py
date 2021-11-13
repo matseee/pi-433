@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# simple test-script from https://github.com/milaq/rpi-rf
 
 import argparse
 import signal
