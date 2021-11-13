@@ -5,10 +5,10 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=___PATH___/run.sh
+ExecStart=python3 ___PATH___/scripts/pi-433.py
 User=pi
 WorkingDirectory=___PATH___
-Restart=on-failure
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
