@@ -1,0 +1,14 @@
+***Pi433.service***
+[Unit]
+Description=Pi433-Service
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=___PATH___/run.sh
+User=pi
+WorkingDirectory=___PATH___
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
