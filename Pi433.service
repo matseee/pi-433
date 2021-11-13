@@ -5,7 +5,7 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3.9/python3 ___PATH___/scripts/pi-433.py
+ExecStart=/usr/bin/python3 ___PATH___/scripts/pi-433.py
 User=pi
 WorkingDirectory=___PATH___
 Restart=always
