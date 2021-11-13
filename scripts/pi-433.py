@@ -66,3 +66,7 @@ def set(endpointName):
         logging.info('Endpoint not found: ' + endpointName)
         abort(404)
         return '404 Endpoint not found'
+
+
+if __name__ == "__main__":
+    app.run()
