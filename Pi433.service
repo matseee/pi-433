@@ -5,7 +5,7 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=python3 ___PATH___/scripts/pi-433.py
+ExecStart=export FLASK_APP=___PATH___/scripts/pi-433.py && flask run --host=0.0.0.0
 User=pi
 WorkingDirectory=___PATH___
 Restart=always
