@@ -28,3 +28,6 @@ sets the new state with the following body:
 | B | 4433 | 4436 |
 | C | 5201 | 5204 |
 | D | 5393 | 5396 |
+
+# Credits
+Big thanks to Suat Özgür and Micha LaQua for the [rpi-rf](https://github.com/milaq/rpi-rf) project.
