@@ -5,10 +5,11 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=export FLASK_APP=___PATH___/scripts/pi-433.py && /usr/bin/flask run --host=0.0.0.0
+ExecStart=/usr/bin/flask run --host=0.0.0.0
 User=pi
 WorkingDirectory=___PATH___
 Restart=always
+Environment="FLASK_APP=___PATH___/scripts/pi-433.py"
 
 [Install]
 WantedBy=multi-user.target
