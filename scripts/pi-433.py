@@ -57,7 +57,7 @@ def set(endpointName):
 
         rfdevice = RFDevice(17)
         rfdevice.enable_tx()
-        rfdevice.tx_repeat = 50
+        rfdevice.tx_repeat = 200
         rfdevice.tx_code(code, 1, 350, 24)
         rfdevice.cleanup()
         logging.info('Send code ' + str(code) + ' via 433MHZ.')
