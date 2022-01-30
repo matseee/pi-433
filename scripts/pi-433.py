@@ -5,7 +5,8 @@ import logging
 from flask import Flask, request
 from rpi_rf import RFDevice
 
-logging.basicConfig(level=logging.INFO, datefmt='%Y-%m-%d %H:%M:%S',
+logging.basicConfig(filename='/var/log/pi-433.log', encoding='utf-8',
+                    level=logging.INFO, datefmt='%Y-%m-%d %H:%M:%S',
                     format='%(asctime)-15s - [%(levelname)s] %(module)s: %(message)s',)
 
 
@@ -57,7 +58,7 @@ def set(endpointName):
 
         rfdevice = RFDevice(17)
         rfdevice.enable_tx()
-        rfdevice.tx_repeat = 200
+        rfdevice.tx_repeat = 100
         rfdevice.tx_code(code, 1, 350, 24)
         rfdevice.cleanup()
         logging.info('Send code ' + str(code) + ' via 433MHZ.')
